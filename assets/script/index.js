@@ -4,7 +4,7 @@ const calendarObjWrapper = {
   constructor: "",
   calendar: "",
 };
-const userName = "Hesam";
+const userName = prompt("Enter you UserName pls :");
 
 async function fetchData() {
   const res = await fetch("https://63e09c6b59bb472a7425106c.mockapi.io/todos");
@@ -363,10 +363,11 @@ async function renderCalendar() {
     true,
     calendarOnEventChange
   );
-  if (document.body.offsetWidth > 400) {
-    calendarObjWrapper.calendar.setOption("height", "100vh");
-  } else {
+  console.log(document.body.offsetWidth);
+  if (document.body.offsetWidth < 1200) {
     calendarObjWrapper.calendar.setOption("height", "60vh");
+  } else {
+    calendarObjWrapper.calendar.setOption("height", "100vh");
   }
 
   calendarObjWrapper.calendar.render();
