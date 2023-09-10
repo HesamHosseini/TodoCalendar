@@ -108,8 +108,6 @@ async function renderItems() {
         )
       )
     ) {
-      // console.log(todo);
-      calendarObjWrapper.calendar.addEvent(todo);
       const li = document.createElement("li");
       li.classList.add("item");
       li.id = `item_${todo.id}`;
@@ -153,6 +151,10 @@ async function renderItems() {
       li.addEventListener("dragend", () => li.classList.remove("dragging"));
       listItemWrapper.appendChild(li);
     }
+
+    if (todo.extendedProps.userName == userName) {
+      calendarObjWrapper.calendar.addEvent(todo);
+    }
   });
   listItemWrapper.addEventListener("dragover", initSortableList);
   listItemWrapper.addEventListener("dragenter", (e) => e.preventDefault());
@@ -182,7 +184,7 @@ async function renderItems() {
 
 function initSortableList(e) {
   e.preventDefault();
-  console.log(e.target);
+
   const draggingItem = document.querySelector(".dragging");
   // Getting all items except currently dragging and making array of them
   let siblings = [...listItemWrapper.querySelectorAll(".item:not(.dragging)")];
@@ -303,7 +305,7 @@ document
    "userName": "Hesam"
   }
       */
-      console.log(color);
+
       const todoObject = {
         id: Date.now(),
         title: title,
@@ -348,17 +350,12 @@ document
       e.target.style.width = "18px";
       e.target.style.height = "18px";
       const selectedColor = e.target.getAttribute("value");
-      console.log(
-        (document.querySelector(".inputWrapper").style.backgroundColor =
-          selectedColor)
-      );
     });
   });
 
 document.addEventListener("DOMContentLoaded", async () => {
   await renderCalendar();
   await renderItems();
-  //await console.log(calConstructor);
 });
 
 async function renderCalendar() {
@@ -374,7 +371,7 @@ async function renderCalendar() {
     true,
     calendarOnEventChange
   );
-  console.log(document.body.offsetWidth);
+
   if (document.body.offsetWidth < 1200) {
     calendarObjWrapper.calendar.setOption("height", "60vh");
   } else {
@@ -384,10 +381,12 @@ async function renderCalendar() {
   calendarObjWrapper.calendar.render();
 }
 
-function calendarOnEventChange(info) {
+async function calendarOnEventChange({ event }) {
   //const json = MyCalendar.calendar.getEvents().map((event) => event.toJSON());
 
-  console.log(info);
+  const data = event.toJSON();
+  await putData(data, data.id);
+  await renderItems();
 }
 
 function checkTodayTask(calendarEvent, compareDate) {
