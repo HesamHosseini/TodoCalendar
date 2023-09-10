@@ -24,6 +24,13 @@ body .todoWrapper > div {
   padding: 10px;
   border-radius: 8px;
 }
+body .todoWrapper ul::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+body .todoWrapper ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 0, 0.342); /* color of the tracking area */
+  border-radius: 4px;
+}
 body .calendarWrapper > div {
   padding: 10px;
   font-size: 1rem;
@@ -75,5 +82,12 @@ body .calendarWrapper > div {
   }
   body .calendarWrapper #calendar {
     max-width: unset !important;
+  }
+  body .todoWrapper .item .top {
+    gap: 10px;
+  }
+  body .todoWrapper ul {
+    max-height: 50vh;
+    overflow-y: scroll;
   }
 }/*# sourceMappingURL=main.css.map */

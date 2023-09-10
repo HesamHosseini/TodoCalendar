@@ -30,6 +30,17 @@ body {
       padding: 10px;
       border-radius: 8px;
     }
+    ul {
+      &::-webkit-scrollbar {
+        width: 5px; /* width of the entire scrollbar */
+      }
+      &::-webkit-scrollbar-track {
+      }
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 0, 0, 0.342); /* color of the tracking area */
+        border-radius: 4px;
+      }
+    }
   }
   .calendarWrapper {
     & > div {
@@ -95,6 +106,15 @@ body {
     .calendarWrapper {
       #calendar {
         max-width: unset !important;
+      }
+    }
+    .todoWrapper {
+      .item .top {
+        gap: 10px;
+      }
+      ul {
+        max-height: 50vh;
+        overflow-y: scroll;
       }
     }
   }

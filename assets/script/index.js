@@ -96,7 +96,17 @@ async function renderItems() {
   listItemWrapper.innerHTML = "";
   let dataArr = await fetchData();
   await dataArr.forEach((todo) => {
-    if (todo.extendedProps.userName == userName) {
+    if (
+      todo.extendedProps.userName == userName &&
+      checkTodayTask(
+        todo,
+        new Date(
+          new Date().getFullYear(),
+          new Date().getMonth(),
+          new Date().getDate()
+        )
+      )
+    ) {
       // console.log(todo);
       calendarObjWrapper.calendar.addEvent(todo);
       const li = document.createElement("li");
@@ -377,4 +387,16 @@ function calendarOnEventChange(info) {
   //const json = MyCalendar.calendar.getEvents().map((event) => event.toJSON());
 
   console.log(info);
+}
+
+function checkTodayTask(calendarEvent, compareDate) {
+  const inTheMiddleOfEvent =
+    compareDate >= new Date(calendarEvent.start) &&
+    compareDate <= new Date(calendarEvent.end);
+  if (
+    inTheMiddleOfEvent ||
+    new Date(calendarEvent.start).toDateString() === compareDate.toDateString()
+  ) {
+    return true;
+  } else return false;
 }
