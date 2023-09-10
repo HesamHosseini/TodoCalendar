@@ -94,6 +94,7 @@ async function deleteData(id) {
 }
 async function renderItems() {
   listItemWrapper.innerHTML = "";
+  calendarObjWrapper.calendar.removeAllEvents();
   let dataArr = await fetchData();
   await dataArr.forEach((todo) => {
     if (
