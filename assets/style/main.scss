@@ -1,0 +1,101 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-0 {
+  border: none;
+  outline: none;
+}
+
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  .todoWrapper {
+    & > div {
+      box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.1);
+      border: 0.1px solid rgba(128, 128, 128, 0.123);
+      padding: 10px;
+      border-radius: 8px;
+    }
+  }
+  .calendarWrapper {
+    & > div {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 0px;
+      text-align: center;
+    }
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (max-width: 1200px) {
+  body {
+    display: grid;
+    grid-template-columns: auto;
+    .calendarWrapper {
+      #calendar {
+        max-width: unset !important;
+        font-size: 10px;
+      }
+    }
+
+    .todoWrapper {
+      .item .top {
+        gap: 10px;
+      }
+      .inputWrapper {
+        .mainText {
+          display: grid;
+          grid-template-areas:
+            "input input input input btn"
+            "colors colors colors colors colors";
+          gap: 0;
+          padding: 10px;
+        }
+        input {
+          grid-area: input;
+        }
+        .TaskColorSeletor {
+          grid-area: colors;
+          gap: 32px;
+          width: 100%;
+        }
+        .sendBtn {
+          grid-area: btn;
+        }
+      }
+      ul {
+        max-height: 160px;
+        overflow-y: scroll;
+      }
+    }
+  }
+}
+/* Large devices (desktops, 992px and up) */
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    display: grid;
+    grid-template-columns: auto 30%;
+    .calendarWrapper {
+      #calendar {
+        max-width: unset !important;
+      }
+    }
+  }
+}

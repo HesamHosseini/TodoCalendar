@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style/todoList.css">
+    <link rel="stylesheet" href="./assets/style/main.css">
+    <!-- <script src="./assets/script/calendar.js"></script> -->
+</head>
+
+<body>
+    <div class="calendarWrapper">
+        <div id="calendar">
+
+        </div>
+    </div>
+    <div class="todoWrapper">
+        <div>
+            <h3 style="text-align: center; width: 100%;">
+                کار های من
+            </h3>
+            <ul id="listItemWrapper" class="sortable-list">
+            </ul>
+            <div class="inputWrapper">
+                <div class="mainText">
+                    <div class="TaskColorSeletor" style="display: flex;">
+
+                        <span color="red" value="#ff464680"></span>
+                        <span color="orange" value="#ff8a4680"></span>
+                        <span color="green" value="#65ff4680"></span>
+                        <span color="default" value="#5bc0ff80"></span>
+                    </div>
+                    <input class="titleInput" placeholder="متن خود را اینجا وارد کنید">
+                    <div class="sendBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M20.33 3.67a1.45 1.45 0 0 0-1.47-.35L4.23 8.2A1.44 1.44 0 0 0 4 10.85l6.07 3l3 6.09a1.44 1.44 0 0 0 1.29.79h.1a1.43 1.43 0 0 0 1.26-1l4.95-14.59a1.41 1.41 0 0 0-.34-1.47ZM4.85 9.58l12.77-4.26l-7.09 7.09Zm9.58 9.57l-2.84-5.68l7.09-7.09Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="./assets/script/index.js"></script>
+    <script defer>
+        // console.log(calConstructor)
+    </script>
+</body>
+
+</html>
