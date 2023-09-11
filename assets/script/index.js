@@ -350,6 +350,8 @@ document
       e.target.style.width = "18px";
       e.target.style.height = "18px";
       const selectedColor = e.target.getAttribute("value");
+      e.target.closest(".inputWrapper").style.backgroundColor =
+        e.target.getAttribute("value");
     });
   });
 
@@ -369,7 +371,21 @@ async function renderCalendar() {
   calendarObjWrapper.calendar = calendarObjWrapper.constructor(
     calendarElm,
     true,
-    calendarOnEventChange
+    {
+      eventChange: async (info) => {
+        const data = info.event.toJSON();
+
+        if (typeof data.end == "undefined") {
+          data.end = "";
+        }
+
+        await putData(data, data.id);
+        await renderItems();
+      },
+      eventClick: (info) => {
+        console.log(info.event.toJSON());
+      },
+    }
   );
 
   if (document.body.offsetWidth < 1200) {
@@ -381,13 +397,10 @@ async function renderCalendar() {
   calendarObjWrapper.calendar.render();
 }
 
-async function calendarOnEventChange({ event }) {
-  //const json = MyCalendar.calendar.getEvents().map((event) => event.toJSON());
+// async function calendarOnEventChange(info) {
+//   //const json = MyCalendar.calendar.getEvents().map((event) => event.toJSON());
 
-  const data = event.toJSON();
-  await putData(data, data.id);
-  await renderItems();
-}
+// }
 
 function checkTodayTask(calendarEvent, compareDate) {
   const inTheMiddleOfEvent =

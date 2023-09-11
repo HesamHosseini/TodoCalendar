@@ -22870,13 +22870,7 @@
     eventRefiners: RRULE_EVENT_REFINERS,
   });
 
-  const calConstructor = (
-    elm,
-    editable = true,
-    onChangeEvent = (info) => {
-      return info;
-    }
-  ) => {
+  const calConstructor = (elm, editable = true, callbackEvents) => {
     return new Calendar(elm, {
       plugins: [index$4, index$3, index$2, index$1, index],
 
@@ -22886,25 +22880,12 @@
         center: "title",
         right: "dayGridMonth,timeGridWeek,listWeek",
       },
-      events: [
-        {
-          title: "my recurring event",
-          rrule: {
-            freq: "monthly",
-            interval: 5,
-            byweekday: ["SA"],
-            //bymonthday: [["mo"], ["mo"], ["mo"], ["mo"], ["mo"]],
-            dtstart: "2023-02-29T10:30:00", // will also accept '20120201T103000'
-            until: "2023-12-29", // will also accept '20120201'
-          },
-        },
-      ],
+
+      editable: editable,
       locale: l27,
       editable: true,
-      eventChange: function (info) {
-        onChangeEvent(info);
-      },
-
+      eventChange: callbackEvents.eventChange ? callbackEvents.eventChange : "",
+      eventClick: callbackEvents.eventClick ? callbackEvents.eventClick : "",
       dayMaxEvents: true,
     });
   };
@@ -22918,6 +22899,5 @@
   }
   if (typeof calendarObjWrapper !== "undefined") {
     calendarObjWrapper.constructor = calConstructor;
-    console.log(calendarObjWrapper.constructor);
   }
 })();
