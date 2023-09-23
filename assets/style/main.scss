@@ -147,8 +147,13 @@ body {
       }
     }
 
+    .categorySelector{
+          font-size: 10px;
+          
+    }
     .todoWrapper {
-      flex-direction: row;
+      flex-direction: column;
+      padding-top: 0px;
 
       .item .top {
         gap: 10px;
@@ -200,6 +205,7 @@ body {
       }
     }
     .todoWrapper {
+      flex-direction: row;
       .item .top {
         gap: 10px;
       }

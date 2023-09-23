@@ -126,8 +126,12 @@ body .calendarWrapper > #calendar {
     max-width: unset !important;
     font-size: 10px;
   }
+  body .categorySelector {
+    font-size: 10px;
+  }
   body .todoWrapper {
-    flex-direction: row;
+    flex-direction: column;
+    padding-top: 0px;
   }
   body .todoWrapper .item .top {
     gap: 10px;
@@ -167,6 +171,9 @@ body .calendarWrapper > #calendar {
   }
   body .calendarWrapper #calendar {
     max-width: unset !important;
+  }
+  body .todoWrapper {
+    flex-direction: row;
   }
   body .todoWrapper .item .top {
     gap: 10px;
