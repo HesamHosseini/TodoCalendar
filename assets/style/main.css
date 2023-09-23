@@ -18,6 +18,45 @@ body {
   padding: 0 !important;
   margin: 0 !important;
 }
+body .todoWrapper {
+  justify-content: space-between;
+}
+body .todoWrapper .categorySelector {
+  position: relative;
+  width: 200px;
+  margin: 10px;
+}
+body .todoWrapper .categorySelector .select-styled {
+  direction: rtl;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body .todoWrapper .categorySelector .select-options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  margin-top: -1px;
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  max-height: 100px;
+  direction: rtl;
+}
+body .todoWrapper .categorySelector .select-options li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+body .todoWrapper .categorySelector .select-options li:hover {
+  background-color: #f2f2f2;
+}
 body .todoWrapper > div {
   box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.1);
   border: 0.1px solid rgba(128, 128, 128, 0.123);
@@ -31,7 +70,46 @@ body .todoWrapper ul::-webkit-scrollbar-thumb {
   background: rgba(255, 0, 0, 0.342); /* color of the tracking area */
   border-radius: 4px;
 }
-body .calendarWrapper > div {
+body .todoWrapper .categoryWrapper input {
+  font-size: 15px;
+  direction: rtl;
+  width: 100%;
+  flex: 1;
+  padding: 5px;
+  font-size: 12px;
+  border: none;
+  outline: none;
+  color: skyblue;
+}
+body .todoWrapper .categoryWrapper #categoryResElement {
+  display: none;
+  border: 1px solid #cacaca;
+  border-radius: 8px;
+  max-height: 100px;
+  overflow-y: auto;
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+}
+body .todoWrapper .categoryWrapper #categoryResElement::-webkit-scrollbar {
+  width: 5px; /* width of the entire scrollbar */
+}
+body .todoWrapper .categoryWrapper #categoryResElement::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 0, 0.342); /* color of the tracking area */
+  border-radius: 4px;
+}
+body .todoWrapper .categoryWrapper #categoryResElement div {
+  direction: rtl;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 6px;
+  font-size: 14px;
+}
+body .todoWrapper .categoryWrapper #categoryResElement div:hover {
+  background-color: #f2f2f2;
+}
+body .calendarWrapper > #calendar {
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
   margin: 0px;
@@ -47,6 +125,9 @@ body .calendarWrapper > div {
   body .calendarWrapper #calendar {
     max-width: unset !important;
     font-size: 10px;
+  }
+  body .todoWrapper {
+    flex-direction: row;
   }
   body .todoWrapper .item .top {
     gap: 10px;
@@ -68,12 +149,16 @@ body .calendarWrapper > div {
   body .todoWrapper .inputWrapper .sendBtn {
     grid-area: btn;
   }
+  body .todoWrapper .categoryWrapper #categoryResElement {
+    right: calc(100vw - 444px);
+    bottom: 65px;
+    border: none;
+  }
   body .todoWrapper ul {
     max-height: 160px;
     overflow-y: scroll;
   }
 }
-/* Large devices (desktops, 992px and up) */
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   body {

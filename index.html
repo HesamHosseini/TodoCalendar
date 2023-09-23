@@ -12,11 +12,19 @@
 
 <body>
     <div class="calendarWrapper">
+
+
         <div id="calendar">
 
         </div>
     </div>
     <div class="todoWrapper">
+        <div class="categorySelector">
+            <div class="select-styled" onclick="toggleSelectCategory(event)">یک دسته بندی را انتخاب کنید</div>
+            <ul class="select-options">
+                <!-- Add more options as needed -->
+            </ul>
+        </div>
         <div>
             <h3 style="text-align: center; width: 100%;">
                 کار های من
@@ -41,6 +49,10 @@
                     </div>
                 </div>
             </div>
+            <div class="categoryWrapper">
+                <input type="text" id="categoryInput" placeholder=" انتخاب دسته بندی  :">
+                <div id="categoryResElement"></div>
+            </div>
         </div>
     </div>
 
@@ -49,6 +61,9 @@
     <script src="./assets/script/index.js"></script>
     <script defer>
         // console.log(calConstructor)
+    </script>
+    <script defer>
+
     </script>
 </body>
 
