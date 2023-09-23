@@ -286,7 +286,10 @@ async function renderItems() {
       // add event to the calendar
       calendarObjWrapper.calendar.addEvent(todo);
     }
-    if (!autocompleteOptions.includes(todo.extendedProps.category)) {
+    if (
+      !autocompleteOptions.includes(todo.extendedProps.category) &&
+      todo.extendedProps.userName == userName
+    ) {
       autocompleteOptions.push(todo.extendedProps.category);
       renderCategorySelectOptions(autocompleteOptions);
     }
