@@ -280,12 +280,18 @@ async function renderItems() {
         li.addEventListener("dragend", () => li.classList.remove("dragging"));
         listItemWrapper.appendChild(li);
       }
-      // add personalCategories to the list
     }
     if (todo.extendedProps.userName == userName) {
       // add event to the calendar
-      calendarObjWrapper.calendar.addEvent(todo);
+      if (selectedCategory && todo.extendedProps.category == selectedCategory) {
+        calendarObjWrapper.calendar.addEvent(todo);
+      }
+      if (selectedCategory == "" || selectedCategory == "عمومی") {
+        calendarObjWrapper.calendar.addEvent(todo);
+      }
     }
+
+    // add personalCategories to the list
     if (
       !autocompleteOptions.includes(todo.extendedProps.category) &&
       todo.extendedProps.userName == userName
