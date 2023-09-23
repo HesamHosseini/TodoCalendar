@@ -279,25 +279,16 @@ async function renderItems() {
         // Removing dragging class from item on dragend event
         li.addEventListener("dragend", () => li.classList.remove("dragging"));
         listItemWrapper.appendChild(li);
-        // if (todo.extendedProps.userName == userName) {
-        //   // add event to the calendar
-        //   calendarObjWrapper.calendar.addEvent(todo);
-        //   // add personalCategories to the list
-        //   if (!autocompleteOptions.includes(todo.extendedProps.category)) {
-        //     autocompleteOptions.push(todo.extendedProps.category);
-        //     renderCategorySelectOptions(autocompleteOptions);
-        //   }
-        // }
       }
       // add personalCategories to the list
-      if (todo.extendedProps.userName == userName) {
-        // add event to the calendar
-        calendarObjWrapper.calendar.addEvent(todo);
-      }
-      if (!autocompleteOptions.includes(todo.extendedProps.category)) {
-        autocompleteOptions.push(todo.extendedProps.category);
-        renderCategorySelectOptions(autocompleteOptions);
-      }
+    }
+    if (todo.extendedProps.userName == userName) {
+      // add event to the calendar
+      calendarObjWrapper.calendar.addEvent(todo);
+    }
+    if (!autocompleteOptions.includes(todo.extendedProps.category)) {
+      autocompleteOptions.push(todo.extendedProps.category);
+      renderCategorySelectOptions(autocompleteOptions);
     }
   });
   listItemWrapper.addEventListener("dragover", initSortableList);
