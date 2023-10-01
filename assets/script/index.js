@@ -33,7 +33,7 @@ categoryInput.addEventListener("input", function () {
     const optionElement = document.createElement("div");
     optionElement.textContent = option;
     optionElement.addEventListener("click", function () {
-      categoryInput.value = `  دسته بندی  :` + option;
+      categoryInput.value = option;
       categoryResElement.innerHTML = ``;
       categoryResElement.style.display = "";
     });
@@ -89,6 +89,7 @@ const calendarObjWrapper = {
   constructor: "",
   calendar: "",
 };
+
 const userName = prompt("Enter you UserName pls :");
 const autocompleteOptions = ["عمومی"];
 async function fetchData() {
