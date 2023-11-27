@@ -35,7 +35,7 @@ body .todoWrapper .categorySelector .select-styled {
 }
 body .todoWrapper .categorySelector .select-options {
   display: none;
-  position: absolute;
+  position: relative;
   width: 100%;
   border: 1px solid #ccc;
   border-top: none;
@@ -82,12 +82,13 @@ body .todoWrapper .categoryWrapper input {
   color: skyblue;
 }
 body .todoWrapper .categoryWrapper #categoryResElement {
+  width: 100%;
   display: none;
   border: 1px solid #cacaca;
   border-radius: 8px;
   max-height: 100px;
   overflow-y: auto;
-  position: absolute;
+  position: relative;
   background-color: #fff;
   z-index: 1;
 }
@@ -154,8 +155,7 @@ body .calendarWrapper > #calendar {
     grid-area: btn;
   }
   body .todoWrapper .categoryWrapper #categoryResElement {
-    right: calc(100vw - 444px);
-    bottom: 65px;
+    width: 100%;
     border: none;
   }
   body .todoWrapper ul {
@@ -171,9 +171,6 @@ body .calendarWrapper > #calendar {
   }
   body .calendarWrapper #calendar {
     max-width: unset !important;
-  }
-  body .todoWrapper {
-    flex-direction: row;
   }
   body .todoWrapper .item .top {
     gap: 10px;

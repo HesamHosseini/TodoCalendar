@@ -6,8 +6,9 @@ let selectedCategory = "";
 const CategorySelectOptionsWrapper = document.querySelector(
   ".todoWrapper .categorySelector .select-options"
 );
+
 // set category option wrapper width
-categoryResElement.style.width = `${categoryInput.offsetWidth}px`;
+//categoryResElement.style.width = `${categoryInput.offsetWidth}px`;
 
 categoryInput.addEventListener("input", function () {
   const inputText = categoryInput.value.toLowerCase();
