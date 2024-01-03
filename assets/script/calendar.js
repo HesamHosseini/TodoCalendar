@@ -13720,7 +13720,7 @@
           index$2,
           index$1,
           index,
-          rrulePlugin,
+          //rrulePlugin,
         ],
         initialView: "timeGridWeek",
         headerToolbar: {
